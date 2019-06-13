@@ -1,33 +1,71 @@
-.App {
+body {
+  font-family: 'Nunito'!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #555555!important;
+  font-weight: 700!important;
+}
+
+nav, .card {
+  /* background: #F8F9FA; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1)!important;
+  border: 0!important;
+  /* border-radius: 6px; */
+}
+
+h5 {
+  margin-bottom: 0!important;
+}
+
+p {
+  font-size: 12px!important;
+}
+
+form, p {
+  color: #555555!important;
+}
+
+.internship-box {
+  border-left: 4px solid blueviolet!important;
+}
+
+.source_card {
+  border-top: 4px solid blue!important;
+}
+
+.front_image {
+  border-bottom-right-radius: 4px!important;
+  border-top-right-radius: 4px!important;
+}
+
+a, a:hover {
+  text-decoration: none!important;
+  /* color: #65B3ED!important; */
+}
+
+.gbutton {
+  padding: 8px 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.image_classic {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2)!important;
+  border-radius: 4px!important;
+}
+
+.p_classic {
+  color: #65B3ED!important;
+  font-size: 20px!important;
+  font-family: Pacifico!important;
+}
+
+.footer {
+  background: #65B3ED;
+  color: #ffffff;
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-family: Pacifico!important;
+  padding: 8px;
 }
