@@ -45,6 +45,13 @@ class Login extends Component {
       });
   }
 
+  componentDidMount() {
+    const token = cookie.load('token');
+    if(token !== undefined) {
+      this.props.history.push("/");
+    }
+  }
+
   render() {
     return (
       <div className="mt-4 mb-5 container">
