@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-// import './JobCard.css';
+import './JobCard.css';
 
 class JobCard extends Component {
+
+  state = {
+    title: '',
+    organisation: {},
+    stipend: '',
+    location: ''
+  }
+
+  componentDidMount() {
+    const { title, location, organisation, stipend } = this.props.value;
+    this.setState({
+      title, location, organisation, stipend
+    })
+  }
+
   render(){
     return (
       <div className="col-lg-4 mb-4">
-        <div className="card internship-box p-2">
-            <span style={{ position: 'absolute', right: 0, padding: '4px 8px', background: 'aliceblue', fontSize: '12px', fontWeight: 700,
-            borderRadius: '4px', marginRight: '4px', cursor: 'pointer' }}>Apply</span>
-            <h6>Nexmos</h6>
-            <p style={{ margin: 0 }}>Full-stack Developer
+        <div className="card p-2">
+            <span className="applyBtn">Apply</span>
+            <h6>{this.state.organisation.name}</h6>
+            <p style={{ margin: 0 }}><b>{this.state.title}</b>
             <br/>
-            Delhi, Mumbai
-            <br/>Rs. 10000 - Rs. 20000</p>
+            {this.state.location}
+            <br/>{this.state.stipend}</p>
         </div>
       </div>
     );

@@ -1,0 +1,11 @@
+.applyBtn {
+  position: absolute;
+  right: 0;
+  padding: 4px 8px;
+  background: aliceblue;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-right: 4px;
+  cursor: pointer;
+}

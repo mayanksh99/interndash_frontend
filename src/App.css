@@ -26,13 +26,9 @@ form, p {
   color: #555555!important;
 }
 
-.internship-box {
-  border-left: 4px solid blueviolet!important;
-}
-
-.source_card {
+/* .source_card {
   border-top: 4px solid blue!important;
-}
+} */
 
 .front_image {
   border-bottom-right-radius: 4px!important;

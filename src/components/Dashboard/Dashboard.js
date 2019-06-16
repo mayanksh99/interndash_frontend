@@ -2,15 +2,12 @@ import React, { Component } from 'react';
 import NavBar from '../NavBar/NavBar';
 // import StipendCalculator from '../StipendCalculator/StipendCalculator';
 // import Preferences from '../Preferences/Preferences';
-import JobCard from '../JobCard/JobCard';
+import JobContainer from '../JobContainer/JobContainer';
 import Filter from '../Filter/Filter';
-import {BASE_URL} from '../../config';
+// import axios from 'axios';
+// import {getInternships} from '../../utils/apiService';
 
 class Dashboard extends Component {
-
-  componentDidMount() {
-    console.log(BASE_URL);
-  }
 
   render() {
     return (
@@ -20,16 +17,7 @@ class Dashboard extends Component {
         <div className="mt-4">
           <div className="row">
             <Filter/>
-            <div className="col-lg-9 mb-4">
-              <div className="row">
-                <JobCard/>
-                <JobCard/>
-                <JobCard/>
-                <JobCard/>
-                <JobCard/>
-              </div>
-            </div>
-
+            <JobContainer/>
           </div>
         </div>
       </div>
