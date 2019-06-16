@@ -1,8 +1,51 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 import register from '../../assets/register.png';
+import swal from 'sweetalert';
+import {registerUser} from '../../utils/apiService';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
+
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    redirect: false
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, role } = this.state;
+    const data = { name, email, password, role };
+
+    axios.post(registerUser, data)
+      .then(res => {
+        console.log(res.data.message);
+        if(res.data.message === 'success'){
+          swal("Registered Successfully", "", "success");
+          return <Redirect to='/login'/>
+        }
+        if(res.data.message === 'user already registered.'){
+          swal("User already exists", "", "warning");
+        }
+      })
+      .catch(err => {
+        if(err.message === 'error') {
+          swal("Something went wrong", "", "error");
+        }
+      });
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
     return (
       <div className="mt-5 mb-5 container">
@@ -17,30 +60,30 @@ class Login extends Component {
                     <p style={{ fontSize: '16px' }}>To grab an internship that matches your profile.</p>
                     <br/>
 
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                       <label className="form-check-label">
                         Name
                       </label>
-                      <input className="form-control mt-2" placeholder="Enter your full name" name="name" type="text"/>
+                      <input className="form-control mt-2" placeholder="Enter your full name" onChange={this.handleChange} name="name" type="text"/>
 
                       <br/>
 
                       <label className="form-check-label">
                         Email
                       </label>
-                      <input className="form-control mt-2" placeholder="Enter your email" name="email" type="email"/>
+                      <input className="form-control mt-2" placeholder="Enter your email" name="email" type="email" onChange={this.handleChange}/>
 
                       <br/>
 
                       <label className="form-check-label">
                         Password
                       </label>
-                      <input className="form-control mt-2" placeholder="Enter your password" name="password" type="password"/>
+                      <input className="form-control mt-2" placeholder="Enter your password" name="password" type="password" onChange={this.handleChange}/>
 
                       <br/>
 
-                      <label className="radio-inline"><input type="radio" name="role" value="mentor"/> Recruiter</label>
-                      <label className="radio-inline ml-3"><input type="radio" name="role" value="intern"/> Intern</label>
+                      <label className="radio-inline"><input type="radio" name="role" onChange={this.handleChange} value="mentor"/> Recruiter</label>
+                      <label className="radio-inline ml-3"><input type="radio" name="role" onChange={this.handleChange} value="intern"/> Intern</label>
 
                       <br/>
 
