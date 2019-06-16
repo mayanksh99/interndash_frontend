@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './JobCard.css';
+import cookie from 'react-cookies';
 
 class JobCard extends Component {
 
@@ -7,13 +8,19 @@ class JobCard extends Component {
     title: '',
     organisation: {},
     stipend: '',
-    location: ''
+    location: '',
+    isLoggedIn: false
   }
 
   componentDidMount() {
     const { title, location, organisation, stipend } = this.props.value;
+    const token = cookie.load('token');
+    let isLoggedIn = false;
+    if(token !== undefined) {
+      isLoggedIn = true;
+    }
     this.setState({
-      title, location, organisation, stipend
+      title, location, organisation, stipend, isLoggedIn
     })
   }
 
@@ -21,7 +28,7 @@ class JobCard extends Component {
     return (
       <div className="col-lg-4 mb-4">
         <div className="card internship-box p-2">
-            <span className="applyBtn">Apply</span>
+            {this.state.isLoggedIn === true ? <span className="applyBtn">Apply</span> : <span></span>}
             <h6>{this.state.title}</h6>
             <p style={{ margin: 0 }}><b>{this.state.organisation.name}</b>
             <br/>

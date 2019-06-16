@@ -3,13 +3,14 @@ import logo from '../../assets/logo.png';
 import swal from 'sweetalert';
 import {loginUser} from '../../utils/apiService';
 import axios from 'axios';
+import cookie from 'react-cookies';
+import register from '../../assets/register.png';
 
 class Login extends Component {
 
   state = {
     email: '',
-    password: '',
-    redirect: ''
+    password: ''
   }
 
   handleChange = (e) => {
@@ -22,12 +23,18 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = this.state;
+    if(email === '' || email === undefined || email === null) return swal("Please enter your email", "", "warning");
+    if(password === '' || password === undefined || password === null) return swal("Please enter your password", "", "warning");
+
     const data = {email, password};
     axios.post(loginUser, data)
       .then(res => {
         if(res.data.message === 'success'){
+          const expires = new Date()
+          expires.setDate(Date.now() + 1000 * 60 * 60 * 24 * 14);
+          cookie.save('token', res.data.token, { path: '/', expires });
           swal("LoggedIn Successfully", "", "success");
-          this.props.history.push("/")
+          this.props.history.push("/");
         }
         if(res.data.message === 'incorrect password'){
           swal(res.data.message, "", "warning");
@@ -70,7 +77,7 @@ class Login extends Component {
 
                 </div>
                 <div className="col-lg-7">
-                    <img className="front_image" src="https://images.pexels.com/photos/297648/pexels-photo-297648.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=728" width="100%" alt=""/>
+                    <img className="front_image" src={register} width="100%" alt=""/>
                 </div>
             </div>
         </div>
@@ -82,9 +89,9 @@ class Login extends Component {
                     <img src="https://images.pexels.com/photos/450271/pexels-photo-450271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" width="100%" alt="" className="image_classic"/>
                 </div>
                 <div className="col-lg-4 pt-4">
-                    <p style={{ fontSize: '20px' }} className="p_classic">" Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, aspernatur. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis, optio. "
+                    <p style={{ fontSize: '20px' }} className="p_classic">" Be a yardstick of quality. Some people aren't used to an environment where excellence is expected. "
                         <br/><br/>
-                        - Sundar Pichai
+                        - Sir Steve Jobs
                     </p>
                 </div>
                 <div className="col-lg-2"></div>

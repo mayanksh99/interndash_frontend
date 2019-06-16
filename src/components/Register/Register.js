@@ -18,6 +18,12 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, role } = this.state;
+
+    if(email === '' || email === undefined || email === null) return swal("Please enter your email", "", "warning");
+    if(password === '' || password === undefined || password === null) return swal("Please enter your password", "", "warning");
+    if(name === '' || name === undefined || name === null) return swal("Please enter your name", "", "warning");
+    if(role === '' || role === undefined || role === null) return swal("Please select your role", "", "warning");
+
     const data = { name, email, password, role };
 
     axios.post(registerUser, data)
