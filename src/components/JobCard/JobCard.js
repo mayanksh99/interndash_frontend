@@ -20,13 +20,13 @@ class JobCard extends Component {
   render(){
     return (
       <div className="col-lg-4 mb-4">
-        <div className="card p-2">
+        <div className="card internship-box p-2">
             <span className="applyBtn">Apply</span>
             <h6>{this.state.organisation.name}</h6>
             <p style={{ margin: 0 }}><b>{this.state.title}</b>
             <br/>
             {this.state.location}
-            <br/>{this.state.stipend}</p>
+            <br/>INR {this.state.stipend}</p>
         </div>
       </div>
     );

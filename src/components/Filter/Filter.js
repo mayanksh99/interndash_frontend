@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import logo from '../../assets/logo.png';
 
 class Filter extends Component {
   render() {
     return (<div className="col-lg-3 mb-4">
       <div className="card source_card p-4">
-        <h5>Source</h5>
+        <h5>Source<img src={logo} width="15%" style={{position: 'absolute', right: 20, top: 16}}></img></h5>
         <hr/>
         <form action="">
           <div className="form-check">

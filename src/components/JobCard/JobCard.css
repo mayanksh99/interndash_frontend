@@ -9,3 +9,12 @@
   margin-right: 4px;
   cursor: pointer;
 }
+
+.internship-box {
+  border-left: 0px;
+  transition: 0.15s all linear;
+}
+
+.internship-box:hover {
+  border-left: 4px solid #81C784!important;
+}

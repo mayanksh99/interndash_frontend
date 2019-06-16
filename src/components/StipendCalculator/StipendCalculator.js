@@ -11,7 +11,7 @@ class StipendCalculator extends Component {
             <label className="form-check-label">
               Enter Keywords
             </label>
-            <input className="form-control mt-2" aria-label="Username" aria-describedby="basic-addon1"   type="text"/>
+            <input className="form-control mt-2" aria-label="Username" aria-describedby="basic-addon1" type="text"/>
 
             <button className="mt-3 col-12 pt-1 pb-1 btn btn-outline-dark" style={{
                 fontWeight: 700,
