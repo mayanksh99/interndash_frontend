@@ -1,35 +1,70 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
+import swal from 'sweetalert';
+import {loginUser} from '../../utils/apiService';
+import axios from 'axios';
 
 class Login extends Component {
+
+  state = {
+    email: '',
+    password: '',
+    redirect: ''
+  }
+
+  handleChange = (e) => {
+    e.preventDefault();
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password } = this.state;
+    const data = {email, password};
+    axios.post(loginUser, data)
+      .then(res => {
+        if(res.data.message === 'success'){
+          swal("LoggedIn Successfully", "", "success");
+          this.props.history.push("/")
+        }
+        if(res.data.message === 'incorrect password'){
+          swal(res.data.message, "", "warning");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   render() {
     return (
       <div className="mt-4 mb-5 container">
         <div className="card mt-5">
             <div className="row">
                 <div className="col-lg-5 p-5 mt-2">
-                    {/*<h2>interndash</h2>*/}
                     <img className="logo" src={logo} style={{width:"30%", float: 'right'}} alt=""></img>
                     <h4>Login</h4>
                     <p style={{ fontSize: '16px' }}>To grab an internship that matches your profile.</p>
                     <br/>
 
-                    <form>
+                    <form onSubmit={this.handleSubmit}>
                       <label className="form-check-label">
                         Email
                       </label>
-                      <input className="form-control mt-2" placeholder="Enter your email" type="email"/>
+                      <input className="form-control mt-2" placeholder="Enter your email" name="email" onChange={this.handleChange} type="email"/>
 
                       <br/>
 
                       <label className="form-check-label">
                         Password
                       </label>
-                      <input className="form-control mt-2" placeholder="Enter your password"type="password"/>
+                      <input className="form-control mt-2" placeholder="Enter your password" name="password" onChange={this.handleChange} type="password"/>
 
                       <br/>
 
-                      <button type="submit" href={'/'} className="gbutton btn">Login</button>
+                      <button type="submit" className="gbutton btn">Login</button>
 
                     </form>
 

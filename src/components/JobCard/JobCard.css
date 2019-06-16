@@ -17,4 +17,5 @@
 
 .internship-box:hover {
   border-left: 4px solid #81C784!important;
+  transition: 0.15s all linear;
 }

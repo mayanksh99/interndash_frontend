@@ -4,7 +4,6 @@ import register from '../../assets/register.png';
 import swal from 'sweetalert';
 import {registerUser} from '../../utils/apiService';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -26,7 +25,7 @@ class Login extends Component {
         console.log(res.data.message);
         if(res.data.message === 'success'){
           swal("Registered Successfully", "", "success");
-          return <Redirect to='/login'/>
+          this.props.history.push('/');
         }
         if(res.data.message === 'user already registered.'){
           swal("User already exists", "", "warning");
@@ -87,7 +86,7 @@ class Login extends Component {
 
                       <br/>
 
-                      <button type="submit" href={'/'} className="gbutton_reg btn">Register</button>
+                      <button type="submit" className="gbutton_reg btn">Register</button>
                     </form>
 
                 </div>

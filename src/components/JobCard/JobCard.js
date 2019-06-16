@@ -22,8 +22,8 @@ class JobCard extends Component {
       <div className="col-lg-4 mb-4">
         <div className="card internship-box p-2">
             <span className="applyBtn">Apply</span>
-            <h6>{this.state.organisation.name}</h6>
-            <p style={{ margin: 0 }}><b>{this.state.title}</b>
+            <h6>{this.state.title}</h6>
+            <p style={{ margin: 0 }}><b>{this.state.organisation.name}</b>
             <br/>
             {this.state.location}
             <br/>INR {this.state.stipend}</p>
