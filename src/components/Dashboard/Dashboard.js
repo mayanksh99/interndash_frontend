@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import NavBar from '../NavBar/NavBar';
+// import StipendCalculator from '../StipendCalculator/StipendCalculator';
+// import Preferences from '../Preferences/Preferences';
 import JobCard from '../JobCard/JobCard';
 import Filter from '../Filter/Filter';
+import {BASE_URL} from '../../config';
 
 class Dashboard extends Component {
+
+  componentDidMount() {
+    console.log(BASE_URL);
+  }
+
   render() {
     return (
       <div className="container mt-4">
@@ -12,8 +20,8 @@ class Dashboard extends Component {
         <div className="mt-4">
           <div className="row">
             <Filter/>
-            <div class="col-lg-9 mb-4">
-              <div class="row">
+            <div className="col-lg-9 mb-4">
+              <div className="row">
                 <JobCard/>
                 <JobCard/>
                 <JobCard/>

@@ -1,30 +1,37 @@
 import React, {Component} from 'react';
 
-class Filter extends Component {
+class Preferences extends Component {
   render() {
-    return (<div className="col-lg-3 mb-4">
-      <div className="card source_card p-4">
-        <h5>Source</h5>
+    return (
+      <div className="card source_card mt-4 p-4">
+        <h5>Preferences</h5>
         <hr/>
         <form action="">
           <div className="form-check">
             <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
             <label className="form-check-label">
-              Internshala
+              Work from home
             </label>
           </div>
 
           <div className="form-check">
             <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
             <label className="form-check-label">
-              AngelList
+              Machine Learning
             </label>
           </div>
 
           <div className="form-check">
             <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
             <label className="form-check-label">
-              Linkedin
+              MERN Stack
+            </label>
+          </div>
+
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+            <label className="form-check-label">
+              Django Developer
             </label>
           </div>
 
@@ -36,9 +43,7 @@ class Filter extends Component {
           </button>
         </form>
       </div>
-
-    </div>);
+    )
   }
 }
-
-export default Filter;
+export default Preferences;

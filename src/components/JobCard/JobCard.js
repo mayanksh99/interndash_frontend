@@ -8,7 +8,7 @@ class JobCard extends Component {
         <div className="card internship-box p-2">
             <span style={{ position: 'absolute', right: 0, padding: '4px 8px', background: 'aliceblue', fontSize: '12px', fontWeight: 700,
             borderRadius: '4px', marginRight: '4px', cursor: 'pointer' }}>Apply</span>
-            <h5>Nexmos</h5>
+            <h6>Nexmos</h6>
             <p style={{ margin: 0 }}>Full-stack Developer
             <br/>
             Delhi, Mumbai
