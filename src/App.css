@@ -35,6 +35,11 @@ form, p {
   border-top-right-radius: 4px!important;
 }
 
+.front_image_register {
+  border-bottom-left-radius: 4px!important;
+  border-top-left-radius: 4px!important;
+}
+
 a, a:hover {
   text-decoration: none!important;
   /* color: #65B3ED!important; */
@@ -46,6 +51,17 @@ a, a:hover {
   border-radius: 6px;
   font-weight: 700!important;
   width: 40%!important;
+  letter-spacing: 1px;
+  color: #64B5F6!important;
+}
+
+.gbutton_reg {
+  margin-top: 12px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+  border-radius: 6px;
+  font-weight: 700!important;
+  width: 50%!important;
   letter-spacing: 1px;
   color: #64B5F6!important;
 }
