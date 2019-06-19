@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png';
 
 class Filter extends Component {
   render() {
-    return (<div className="col-lg-3 mb-4">
+    return (<div className="col-lg-3 col-md-4 mb-4">
       <div className="card source_card p-4">
         <h5>Source<img src={logo} width="15%" style={{position: 'absolute', right: 20, top: 16}} alt=""></img></h5>
         <hr/>

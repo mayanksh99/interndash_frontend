@@ -26,7 +26,7 @@ class JobCard extends Component {
 
   render(){
     return (
-      <div className="col-lg-4 mb-4">
+      <div className="col-lg-4 col-md-6 mb-4">
         <div className="card internship-box p-2">
             {this.state.isLoggedIn === true ? <span className="applyBtn">Apply</span> : <span></span>}
             <h6>{this.state.title}</h6>
